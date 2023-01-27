@@ -1,36 +1,35 @@
-import propTypes from 'prop-types';
-import css from './Statistics.module.css';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StatItem } from './Statistics.styled';
 
-export const Statistics = ({
-  good,
-  neutral,
-  bad,
-  total,
-  positivePercentage,
-}) => (
-  <ul className={css.feedbackList}>
-    <li className={css.feedbackListItem}>Good: {good}</li>
-    <li className={css.feedbackListItem}>Neutral: {neutral}</li>
-    <li className={css.feedbackListItem}>Bad: {bad}</li>
-    <li className={css.feedbackListItem}>Total: {total}</li>
-    <li className={css.feedbackListItem}>
-      Positive feedback: {positivePercentage} %
-    </li>
-  </ul>
-);
-
-Statistics.propTypes = {
-  good: propTypes.number.isRequired,
-  neutral: propTypes.number.isRequired,
-  bad: propTypes.number.isRequired,
-  total: propTypes.number.isRequired,
-  positivePercentage: propTypes.number.isRequired,
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+  return (
+    <ul>
+      <StatItem>
+        <p>Good: {good}</p>
+      </StatItem>
+      <StatItem>
+        <p>Neutral: {neutral}</p>
+      </StatItem>
+      <StatItem>
+        <p>Bad: {bad}</p>
+      </StatItem>
+      <StatItem>
+        <p>Total: {total}</p>
+      </StatItem>
+      <StatItem>
+        <p>Positive feedback: {positivePercentage}%</p>
+      </StatItem>
+    </ul>
+  );
 };
 
 Statistics.propTypes = {
-  good: propTypes.number.isRequired,
-  neutral: propTypes.number.isRequired,
-  bad: propTypes.number.isRequired,
-  total: propTypes.number.isRequired,
-  positivePercentage: propTypes.number.isRequired,
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };
+
+export default Statistics;
